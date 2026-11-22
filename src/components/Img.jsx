@@ -1,19 +1,22 @@
 import { useState } from 'react'
-import { imgSrc } from '../data.js'
+import { artistOf, imgSrc } from '../data.js'
+import { useLang } from '../i18n.jsx'
 
-export default function Img({ art, size = 's', className = '', eager = false }) {
+export default function Img({ art, size = 's', eager = false }) {
+  const { lang } = useLang()
   const [loaded, setLoaded] = useState(false)
+  const W = size === 's' ? 640 : 1400
   return (
     <img
       src={imgSrc(art, size)}
-      alt={`${art.artist}, «${art.title}»`}
-      width={size === 's' ? 640 : 1600}
-      height={Math.round((size === 's' ? 640 : 1600) * art.ratio)}
+      alt={`${artistOf(art).name}, ${art.title[lang]}`}
+      width={W}
+      height={Math.round(W * art.ratio)}
       loading={eager ? 'eager' : 'lazy'}
       decoding="async"
       onLoad={() => setLoaded(true)}
-      className={`img ${loaded ? 'is-loaded' : ''} ${className}`}
-      style={{ '--r': art.ratio, backgroundColor: art.color }}
+      className={loaded ? 'img is-loaded' : 'img'}
+      style={{ '--r': art.ratio }}
     />
   )
 }

@@ -1,291 +1,318 @@
-// Работы из открытой коллекции Art Institute of Chicago (общественное достояние, CC0).
+// Placeholder works — replace with real artworks (images in public/art/{id}-s.webp and {id}-l.webp).
+export const artists = {
+  "lm": {
+    "name": "Léa Marchand",
+    "born": 1964,
+    "country": {
+      "en": "France",
+      "fr": "France"
+    }
+  },
+  "jw": {
+    "name": "Jonas Wrede",
+    "born": 1971,
+    "country": {
+      "en": "Germany",
+      "fr": "Allemagne"
+    }
+  },
+  "af": {
+    "name": "Ana Ferro",
+    "born": 1983,
+    "country": {
+      "en": "Spain",
+      "fr": "Espagne"
+    }
+  },
+  "eh": {
+    "name": "Elias Hart",
+    "born": 1958,
+    "country": {
+      "en": "United Kingdom",
+      "fr": "Royaume-Uni"
+    }
+  },
+  "sl": {
+    "name": "Sofia Lind",
+    "born": 1990,
+    "country": {
+      "en": "Sweden",
+      "fr": "Suède"
+    }
+  }
+}
+
 export const artworks = [
   {
-    "id": "28560",
-    "title": "Спальня в Арле",
-    "titleOriginal": "The Bedroom",
-    "artist": "Винсент Ван Гог",
-    "year": "1889",
-    "theme": "interior",
-    "original": "92 × 73 см",
-    "ratio": 0.7829,
-    "color": "#8a866c",
-    "description": "Комната художника в Жёлтом доме: простая мебель, чистые цвета и ощущение покоя, которого Ван Гог так искал."
+    "id": "ochre-silence",
+    "artist": "lm",
+    "year": 2023,
+    "title": {
+      "en": "Ochre Silence",
+      "fr": "Silence ocre"
+    },
+    "medium": {
+      "en": "Oil on canvas",
+      "fr": "Huile sur toile"
+    },
+    "size": "100 × 130 cm",
+    "price": 8400,
+    "sold": false,
+    "ratio": 1.3
   },
   {
-    "id": "16568",
-    "title": "Кувшинки",
-    "titleOriginal": "Water Lilies",
-    "artist": "Клод Моне",
-    "year": "1906",
-    "theme": "landscape",
-    "original": "94 × 89 см",
-    "ratio": 0.9603,
-    "color": "#50717e",
-    "description": "Пруд в Живерни, где небо, вода и цветы растворяются друг в друге. Почти абстракция."
+    "id": "north-light",
+    "artist": "sl",
+    "year": 2024,
+    "title": {
+      "en": "North Light",
+      "fr": "Lumière du nord"
+    },
+    "medium": {
+      "en": "Oil on canvas",
+      "fr": "Huile sur toile"
+    },
+    "size": "90 × 90 cm",
+    "price": 3600,
+    "sold": false,
+    "ratio": 1.0
   },
   {
-    "id": "27992",
-    "title": "Воскресный день на острове Гранд-Жатт",
-    "titleOriginal": "A Sunday on La Grande Jatte — 1884",
-    "artist": "Жорж Сёра",
-    "year": "1884–1886",
-    "theme": "city",
-    "original": "308 × 207 см",
-    "ratio": 0.6702,
-    "color": "#707067",
-    "description": "Манифест пуантилизма: тысячи точек чистого цвета складываются в летний день на берегу Сены."
+    "id": "composition-7",
+    "artist": "af",
+    "year": 2022,
+    "title": {
+      "en": "Composition No. 7",
+      "fr": "Composition n° 7"
+    },
+    "medium": {
+      "en": "Acrylic on canvas",
+      "fr": "Acrylique sur toile"
+    },
+    "size": "80 × 80 cm",
+    "price": 4200,
+    "sold": false,
+    "ratio": 1.0
   },
   {
-    "id": "20684",
-    "title": "Парижская улица в дождливую погоду",
-    "titleOriginal": "Paris Street; Rainy Day",
-    "artist": "Гюстав Кайботт",
-    "year": "1877",
-    "theme": "city",
-    "original": "276 × 212 см",
-    "ratio": 0.7764,
-    "color": "#7a7b7a",
-    "description": "Новый Париж Османа: зонты, мокрая брусчатка и холодный серый свет."
+    "id": "storm-study",
+    "artist": "jw",
+    "year": 2023,
+    "title": {
+      "en": "Storm Study",
+      "fr": "Étude d’orage"
+    },
+    "medium": {
+      "en": "Oil on canvas",
+      "fr": "Huile sur toile"
+    },
+    "size": "120 × 100 cm",
+    "price": 7200,
+    "sold": false,
+    "ratio": 0.8333
   },
   {
-    "id": "111436",
-    "title": "Корзина с яблоками",
-    "titleOriginal": "The Basket of Apples",
-    "artist": "Поль Сезанн",
-    "year": "ок. 1893",
-    "theme": "still",
-    "original": "80 × 65 см",
-    "ratio": 0.7983,
-    "color": "#7a7563",
-    "description": "Натюрморт, в котором Сезанн нарочно смещает перспективу — шаг к живописи XX века."
+    "id": "quiet-field",
+    "artist": "eh",
+    "year": 2021,
+    "title": {
+      "en": "Quiet Field",
+      "fr": "Champ tranquille"
+    },
+    "medium": {
+      "en": "Oil on canvas",
+      "fr": "Huile sur toile"
+    },
+    "size": "70 × 90 cm",
+    "price": 2900,
+    "sold": true,
+    "ratio": 1.2857
   },
   {
-    "id": "56905",
-    "title": "Ноктюрн: синее и золотое. Саутгемптон",
-    "titleOriginal": "Nocturne: Blue and Gold—Southampton Water",
-    "artist": "Джеймс Уистлер",
-    "year": "1872",
-    "theme": "sea",
-    "original": "76 × 51 см",
-    "ratio": 0.6607,
-    "color": "#5b5e53",
-    "description": "Сумерки над водой, огни и силуэты кораблей — живопись как музыка."
+    "id": "red-sun",
+    "artist": "af",
+    "year": 2024,
+    "title": {
+      "en": "Red Sun",
+      "fr": "Soleil rouge"
+    },
+    "medium": {
+      "en": "Acrylic on canvas",
+      "fr": "Acrylique sur toile"
+    },
+    "size": "100 × 100 cm",
+    "price": 5600,
+    "sold": false,
+    "ratio": 1.0
   },
   {
-    "id": "14655",
-    "title": "Две сестры (На террасе)",
-    "titleOriginal": "Two Sisters (On the Terrace)",
-    "artist": "Пьер-Огюст Ренуар",
-    "year": "1881",
-    "theme": "portrait",
-    "original": "80 × 100 см",
-    "ratio": 1.2408,
-    "color": "#777873",
-    "description": "Летний день на берегу Сены: яркие цветы, клубки шерсти и солнечная лёгкость."
+    "id": "blue-hour",
+    "artist": "lm",
+    "year": 2024,
+    "title": {
+      "en": "Blue Hour",
+      "fr": "L’heure bleue"
+    },
+    "medium": {
+      "en": "Oil on canvas",
+      "fr": "Huile sur toile"
+    },
+    "size": "90 × 120 cm",
+    "price": 7800,
+    "sold": false,
+    "ratio": 1.3333
   },
   {
-    "id": "64818",
-    "title": "Стога. Конец лета",
-    "titleOriginal": "Stacks of Wheat (End of Summer)",
-    "artist": "Клод Моне",
-    "year": "1890–91",
-    "theme": "landscape",
-    "original": "100 × 60 см",
-    "ratio": 0.5907,
-    "color": "#8e897f",
-    "description": "Из знаменитой серии «Стога»: один мотив в разный час и сезон — исследование света и воздуха."
+    "id": "garden-memory",
+    "artist": "jw",
+    "year": 2022,
+    "title": {
+      "en": "Garden Memory",
+      "fr": "Mémoire d’un jardin"
+    },
+    "medium": {
+      "en": "Mixed media on linen",
+      "fr": "Technique mixte sur lin"
+    },
+    "size": "110 × 140 cm",
+    "price": 9600,
+    "sold": false,
+    "ratio": 1.2727
   },
   {
-    "id": "80607",
-    "title": "Автопортрет",
-    "titleOriginal": "Self-Portrait",
-    "artist": "Винсент Ван Гог",
-    "year": "1887",
-    "theme": "portrait",
-    "original": "32 × 41 см",
-    "ratio": 1.2746,
-    "color": "#574b40",
-    "description": "Парижский автопортрет, написанный короткими раздельными мазками под влиянием пуантилистов."
+    "id": "dune",
+    "artist": "sl",
+    "year": 2023,
+    "title": {
+      "en": "Dune",
+      "fr": "Dune"
+    },
+    "medium": {
+      "en": "Oil on canvas",
+      "fr": "Huile sur toile"
+    },
+    "size": "100 × 70 cm",
+    "price": 3200,
+    "sold": false,
+    "ratio": 0.7
   },
   {
-    "id": "61128",
-    "title": "В «Мулен Руж»",
-    "titleOriginal": "At the Moulin Rouge",
-    "artist": "Анри де Тулуз-Лотрек",
-    "year": "1892–95",
-    "theme": "interior",
-    "original": "141 × 123 см",
-    "ratio": 0.8737,
-    "color": "#49371e",
-    "description": "Ночной Париж: завсегдатаи кабаре в резком искусственном свете."
+    "id": "meridian",
+    "artist": "eh",
+    "year": 2023,
+    "title": {
+      "en": "Meridian",
+      "fr": "Méridien"
+    },
+    "medium": {
+      "en": "Acrylic on canvas",
+      "fr": "Acrylique sur toile"
+    },
+    "size": "60 × 80 cm",
+    "price": 2400,
+    "sold": false,
+    "ratio": 1.3333
   },
   {
-    "id": "16487",
-    "title": "Марсельский залив, вид из Эстака",
-    "titleOriginal": "The Bay of Marseille, Seen from L'Estaque",
-    "artist": "Поль Сезанн",
-    "year": "ок. 1885",
-    "theme": "sea",
-    "original": "100 × 80 см",
-    "ratio": 0.8013,
-    "color": "#748381",
-    "description": "Синее море, черепичные крыши и горы, выстроенные из плоскостей цвета."
+    "id": "terracotta",
+    "artist": "lm",
+    "year": 2022,
+    "title": {
+      "en": "Terracotta",
+      "fr": "Terre cuite"
+    },
+    "medium": {
+      "en": "Oil on canvas",
+      "fr": "Huile sur toile"
+    },
+    "size": "80 × 100 cm",
+    "price": 6400,
+    "sold": true,
+    "ratio": 1.25
   },
   {
-    "id": "110982",
-    "title": "Натюрморт с цветами",
-    "titleOriginal": "Still Life with Flowers",
-    "artist": "Одилон Редон",
-    "year": "1905",
-    "theme": "still",
-    "original": "65 × 92 см",
-    "ratio": 1.4614,
-    "color": "#837357",
-    "description": "Букет, похожий на видение: цвет у Редона светится изнутри."
+    "id": "rhythm-ii",
+    "artist": "af",
+    "year": 2024,
+    "title": {
+      "en": "Rhythm II",
+      "fr": "Rythme II"
+    },
+    "medium": {
+      "en": "Acrylic on canvas",
+      "fr": "Acrylique sur toile"
+    },
+    "size": "120 × 90 cm",
+    "price": 6800,
+    "sold": false,
+    "ratio": 0.75
   },
   {
-    "id": "25865",
-    "title": "Сельдяная сеть",
-    "titleOriginal": "The Herring Net",
-    "artist": "Уинслоу Хомер",
-    "year": "1885",
-    "theme": "sea",
-    "original": "122 × 76 см",
-    "ratio": 0.6151,
-    "color": "#635743",
-    "description": "Двое рыбаков вытаскивают улов в штормовом море — тяжёлый труд и стихия."
+    "id": "after-rain",
+    "artist": "sl",
+    "year": 2024,
+    "title": {
+      "en": "After Rain",
+      "fr": "Après la pluie"
+    },
+    "medium": {
+      "en": "Oil on canvas",
+      "fr": "Huile sur toile"
+    },
+    "size": "70 × 70 cm",
+    "price": 2600,
+    "sold": false,
+    "ratio": 1.0
   },
   {
-    "id": "14620",
-    "title": "Прогулка по скалам в Пурвиле",
-    "titleOriginal": "Cliff Walk at Pourville",
-    "artist": "Клод Моне",
-    "year": "1882",
-    "theme": "sea",
-    "original": "82 × 66 см",
-    "ratio": 0.8007,
-    "color": "#879090",
-    "description": "Две фигуры на обрыве над Ла-Маншем, ветер и сверкающее море."
+    "id": "black-mountain",
+    "artist": "jw",
+    "year": 2021,
+    "title": {
+      "en": "Black Mountain",
+      "fr": "Montagne noire"
+    },
+    "medium": {
+      "en": "Oil on canvas",
+      "fr": "Huile sur toile"
+    },
+    "size": "130 × 100 cm",
+    "price": 8900,
+    "sold": false,
+    "ratio": 0.7692
   },
   {
-    "id": "18951",
-    "title": "Жёлтые танцовщицы (За кулисами)",
-    "titleOriginal": "Yellow Dancers (In the Wings)",
-    "artist": "Эдгар Дега",
-    "year": "1874–76",
-    "theme": "portrait",
-    "original": "59 × 73 см",
-    "ratio": 1.2396,
-    "color": "#554a31",
-    "description": "Балерины в ожидании выхода — любимый сюжет Дега, увиденный словно случайным взглядом."
+    "id": "salt",
+    "artist": "eh",
+    "year": 2024,
+    "title": {
+      "en": "Salt",
+      "fr": "Sel"
+    },
+    "medium": {
+      "en": "Oil on canvas",
+      "fr": "Huile sur toile"
+    },
+    "size": "90 × 120 cm",
+    "price": 4800,
+    "sold": false,
+    "ratio": 1.3333
   },
   {
-    "id": "111442",
-    "title": "Купание ребёнка",
-    "titleOriginal": "The Child's Bath",
-    "artist": "Мэри Кассат",
-    "year": "1893",
-    "theme": "portrait",
-    "original": "67 × 101 см",
-    "ratio": 1.5172,
-    "color": "#716c6d",
-    "description": "Интимная сцена материнства, вдохновлённая японской гравюрой."
-  },
-  {
-    "id": "27943",
-    "title": "Махана но атуа (День бога)",
-    "titleOriginal": "Mahana no atua (Day of the God)",
-    "artist": "Поль Гоген",
-    "year": "1894",
-    "theme": "landscape",
-    "original": "91 × 68 см",
-    "ratio": 0.7461,
-    "color": "#636662",
-    "description": "Таитянская сцена, где реальность и миф сплетены в декоративный ритм цвета."
-  },
-  {
-    "id": "84088",
-    "title": "Фиолетовое и серебряное. Глубокое море",
-    "titleOriginal": "Violet and Silver—The Deep Sea",
-    "artist": "Джеймс Уистлер",
-    "year": "1893",
-    "theme": "sea",
-    "original": "73 × 50 см",
-    "ratio": 0.6797,
-    "color": "#4f5f68",
-    "description": "Почти абстрактная морская гладь, написанная тонкими прозрачными слоями."
-  },
-  {
-    "id": "14586",
-    "title": "Сад поэта",
-    "titleOriginal": "The Poet's Garden",
-    "artist": "Винсент Ван Гог",
-    "year": "1888",
-    "theme": "landscape",
-    "original": "92 × 73 см",
-    "ratio": 0.7884,
-    "color": "#5a5e33",
-    "description": "Общественный сад в Арле напротив Жёлтого дома — одна из картин, которыми художник украшал комнату для Гогена."
-  },
-  {
-    "id": "20556",
-    "title": "Девочка в шляпе",
-    "titleOriginal": "Young Girl with Hat",
-    "artist": "Берта Моризо",
-    "year": "1892",
-    "theme": "portrait",
-    "original": "47 × 55 см",
-    "ratio": 1.2675,
-    "color": "#72674e",
-    "description": "Лёгкий, почти эскизный портрет, полный воздуха и мягкого света."
-  },
-  {
-    "id": "81535",
-    "title": "Вид на море. Штиль",
-    "titleOriginal": "Sea View, Calm Weather (Vue de mer, temps calme)",
-    "artist": "Эдуар Мане",
-    "year": "1864",
-    "theme": "sea",
-    "original": "92 × 73 см",
-    "ratio": 0.7877,
-    "color": "#678078",
-    "description": "Высокий горизонт и парусники на спокойной воде — смелая композиция Мане."
-  },
-  {
-    "id": "14598",
-    "title": "Пляж в Сент-Адрессе",
-    "titleOriginal": "The Beach at Sainte-Adresse",
-    "artist": "Клод Моне",
-    "year": "1867",
-    "theme": "sea",
-    "original": "102 × 75 см",
-    "ratio": 0.739,
-    "color": "#8e9393",
-    "description": "Ранний Моне: лодки на берегу Нормандии, облачное небо и рыбаки."
-  },
-  {
-    "id": "96559",
-    "title": "Поворот дороги",
-    "titleOriginal": "A Turn in the Road",
-    "artist": "Альфред Сислей",
-    "year": "1873",
-    "theme": "landscape",
-    "original": "64 × 54 см",
-    "ratio": 0.7972,
-    "color": "#89938a",
-    "description": "Тихая французская деревня, дорога уводит взгляд вглубь картины."
-  },
-  {
-    "id": "110541",
-    "title": "Хрустальный дворец",
-    "titleOriginal": "The Crystal Palace",
-    "artist": "Камиль Писсарро",
-    "year": "1871",
-    "theme": "city",
-    "original": "73 × 47 см",
-    "ratio": 0.6352,
-    "color": "#8a8680",
-    "description": "Лондонский пригород и стеклянный дворец — модерность в импрессионистской манере."
+    "id": "signal",
+    "artist": "af",
+    "year": 2023,
+    "title": {
+      "en": "Signal",
+      "fr": "Signal"
+    },
+    "medium": {
+      "en": "Acrylic on canvas",
+      "fr": "Acrylique sur toile"
+    },
+    "size": "70 × 100 cm",
+    "price": 3900,
+    "sold": false,
+    "ratio": 1.4286
   }
 ]

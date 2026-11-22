@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { config } from './config.js'
 
 const read = () => window.location.hash.replace(/^#/, '') || '/'
 const scrollPos = {}
@@ -11,7 +12,6 @@ export function useRoute() {
       scrollPos[current] = window.scrollY
       current = read()
       setRoute(current)
-      // Каталог возвращаем на прежнюю позицию, остальные страницы — наверх
       requestAnimationFrame(() => window.scrollTo(0, current === '/' ? scrollPos['/'] || 0 : 0))
     }
     window.addEventListener('hashchange', on)
@@ -24,6 +24,6 @@ export const navigate = (path) => { window.location.hash = path }
 
 export function useTitle(title) {
   useEffect(() => {
-    document.title = title ? `${title} — Галерея` : 'Галерея — репродукции картин'
+    document.title = title ? `${title} — ${config.shopName}` : config.shopName
   }, [title])
 }

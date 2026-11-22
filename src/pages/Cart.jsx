@@ -1,33 +1,28 @@
-import { FREE_DELIVERY_FROM, formatPrice, getArtwork, optionLabel, priceOf } from '../data.js'
+import { artistOf, formatPrice, getArtwork } from '../data.js'
 import { useCart } from '../cart.jsx'
+import { useLang } from '../i18n.jsx'
 import { useTitle } from '../router.js'
 import Img from '../components/Img.jsx'
 
 export function CartLines({ editable = true }) {
   const cart = useCart()
+  const { lang, t } = useLang()
   return (
     <ul className="cart-list">
-      {cart.items.map((i) => {
-        const a = getArtwork(i.id)
+      {cart.items.map((id) => {
+        const a = getArtwork(id)
         return (
-          <li key={i.key}>
-            <a href={`#/art/${a.id}`} className="thumb"><Img art={a} /></a>
+          <li key={id}>
+            <a href={`#/art/${id}`} className="thumb"><Img art={a} /></a>
             <div className="cart-info">
-              <a href={`#/art/${a.id}`}>{a.title}</a>
-              <span className="muted">{a.artist}</span>
-              <span className="muted">{optionLabel(a, i)}</span>
+              <span>{artistOf(a).name}</span>
+              <span className="muted"><i>{a.title[lang]}</i>, {a.year}</span>
+              <span className="muted">{a.size}</span>
             </div>
-            {editable ? (
-              <div className="qty">
-                <button onClick={() => cart.setQty(i.key, i.qty - 1)} aria-label="Меньше">−</button>
-                <span>{i.qty}</span>
-                <button onClick={() => cart.setQty(i.key, i.qty + 1)} aria-label="Больше">+</button>
-              </div>
-            ) : (
-              <span className="muted">{i.qty} шт.</span>
-            )}
-            <span className="nowrap line-price">{formatPrice(priceOf(i) * i.qty)}</span>
-            {editable && <button className="link" onClick={() => cart.remove(i.key)} aria-label="Удалить">×</button>}
+            <div className="cart-right">
+              <span className="nowrap">{formatPrice(a.price, lang)}</span>
+              {editable && <button className="link-btn" onClick={() => cart.remove(id)}>{t('remove')}</button>}
+            </div>
           </li>
         )
       })}
@@ -36,31 +31,26 @@ export function CartLines({ editable = true }) {
 }
 
 export default function Cart() {
-  useTitle('Корзина')
+  const { lang, t } = useLang()
+  useTitle(t('cart'))
   const cart = useCart()
 
   if (cart.items.length === 0) {
     return (
       <main className="narrow center">
-        <h1>Корзина пуста</h1>
-        <p className="muted">Выберите картину в каталоге.</p>
-        <a href="#/" className="btn">В каталог</a>
+        <p>{t('cartEmpty')}</p>
+        <a href="#/" className="u">{t('browse')}</a>
       </main>
     )
   }
-
-  const left = FREE_DELIVERY_FROM - cart.subtotal
   return (
-    <main className="narrow wide">
-      <h1>Корзина</h1>
+    <main className="narrow">
+      <h1>{t('cart')}</h1>
       <CartLines />
-      <div className="total"><span>Итого</span><span>{formatPrice(cart.subtotal)}</span></div>
-      <p className="muted small">
-        {left > 0 ? `До бесплатной доставки — ${formatPrice(left)}` : 'Доставка бесплатно'}
-      </p>
+      <div className="sum-row total"><span>{t('total')}</span><span>{formatPrice(cart.subtotal, lang)}</span></div>
+      <p className="muted small">{t('shipping')}: {t('shipCourierNote').toLowerCase()}</p>
       <div className="row-end">
-        <a href="#/" className="btn btn-ghost">Продолжить покупки</a>
-        <a href="#/checkout" className="btn">Оформить заказ</a>
+        <a href="#/checkout" className="btn">{t('checkout')}</a>
       </div>
     </main>
   )

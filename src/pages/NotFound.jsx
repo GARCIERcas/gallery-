@@ -1,11 +1,13 @@
+import { useLang } from '../i18n.jsx'
 import { useTitle } from '../router.js'
 
 export default function NotFound() {
-  useTitle('Страница не найдена')
+  const { t } = useLang()
+  useTitle(t('notFound'))
   return (
     <main className="narrow center">
-      <h1>Страница не найдена</h1>
-      <a href="#/" className="btn">В каталог</a>
+      <h1>{t('notFound')}</h1>
+      <a href="#/" className="u">{t('back')}</a>
     </main>
   )
 }

@@ -1,10 +1,12 @@
-// Настройки магазина. Меняйте здесь.
+// Shop settings — edit here.
 export const config = {
-  shopName: 'Галерея',
+  shopName: 'Galerie',
   contactEmail: 'hello@gallery.example',
-  contactPhone: '+7 (900) 000-00-00',
-  telegram: '', // например 'gallery_shop' — без @
-  // URL для приёма заказов (POST JSON). Например, форма Formspree: https://formspree.io/f/xxxxxxx
-  // Задаётся переменной VITE_ORDER_ENDPOINT при сборке (в GitHub: Settings → Variables → ORDER_ENDPOINT).
+  contactPhone: '+33 1 00 00 00 00',
+  address: 'Paris, France',
+  instagram: '', // e.g. 'galerie' — without @
+  currency: 'EUR',
+  // Endpoint that receives orders as JSON POST (e.g. a Formspree form URL).
+  // Set via VITE_ORDER_ENDPOINT at build time (GitHub: Settings → Variables → ORDER_ENDPOINT).
   orderEndpoint: import.meta.env.VITE_ORDER_ENDPOINT || '',
 }
