@@ -1,17 +1,87 @@
-export const artworks = [
-  { id: 'tishina', title: 'Тишина', year: 2024, medium: 'Холст, масло', size: '80 × 100 см', price: 48000, style: 'fields', ratio: 1.25, palette: ['#e9e4da', '#c9b8a3', '#8c6f5a', '#3b2f2a'] },
-  { id: 'poludennoe-solnce', title: 'Полуденное солнце', year: 2024, medium: 'Холст, акрил', size: '70 × 70 см', price: 36000, style: 'circle', ratio: 1, palette: ['#efe9dd', '#d9572b', '#1f1f1f'] },
-  { id: 'liniya-gorizonta', title: 'Линия горизонта', year: 2023, medium: 'Холст, масло', size: '120 × 80 см', price: 64000, style: 'horizon', ratio: 0.667, palette: ['#d6dde0', '#9fb1b8', '#3d5560', '#f2e7cf'], sold: true },
-  { id: 'ritm', title: 'Ритм', year: 2025, medium: 'Бумага, тушь', size: '50 × 70 см', price: 22000, style: 'lines', ratio: 1.4, palette: ['#f3f0e8', '#1c1c1c'] },
-  { id: 'konstrukciya', title: 'Конструкция №3', year: 2025, medium: 'Холст, акрил', size: '90 × 90 см', price: 52000, style: 'arcs', ratio: 1, palette: ['#ece6d8', '#24408e', '#e3b23c', '#c4442f', '#1c1c1c'] },
-  { id: 'osen', title: 'Осень', year: 2023, medium: 'Холст, масло', size: '60 × 80 см', price: 41000, style: 'fields', ratio: 1.333, palette: ['#e8d9c4', '#c46a3a', '#7a2e1f', '#2b1d18'] },
-  { id: 'arhitektura', title: 'Архитектура', year: 2025, medium: 'Холст, акрил', size: '80 × 100 см', price: 55000, style: 'blocks', ratio: 1.25, palette: ['#efebe3', '#1c1c1c', '#b9b2a6', '#c4442f'] },
-  { id: 'luna', title: 'Луна над морем', year: 2024, medium: 'Холст, масло', size: '100 × 70 см', price: 58000, style: 'circle', ratio: 0.7, palette: ['#1d2430', '#e8e1cf', '#3a4a5c'] },
-  { id: 'dyhanie', title: 'Дыхание', year: 2025, medium: 'Бумага, акварель', size: '40 × 50 см', price: 18000, style: 'lines', ratio: 1.25, palette: ['#f1ede4', '#5f7f75'], sold: true },
-  { id: 'polden', title: 'Полдень', year: 2025, medium: 'Холст, масло', size: '100 × 100 см', price: 72000, style: 'horizon', ratio: 1, palette: ['#f0e3c4', '#e5a85a', '#a65a2e', '#fbf3e0'] },
-  { id: 'dialog', title: 'Диалог', year: 2024, medium: 'Холст, акрил', size: '60 × 80 см', price: 34000, style: 'arcs', ratio: 1.333, palette: ['#f0ece4', '#1c1c1c', '#b3412e', '#d7cdb9', '#1c1c1c'] },
-  { id: 'glubina', title: 'Глубина', year: 2025, medium: 'Холст, масло', size: '90 × 120 см', price: 86000, style: 'fields', ratio: 1.333, palette: ['#20303a', '#2f4f5e', '#6b8b95', '#d8d3c7'] },
+import { artworks } from './artworks.js'
+
+export { artworks }
+
+export const themes = {
+  landscape: 'Пейзаж',
+  sea: 'Море',
+  city: 'Город',
+  portrait: 'Портрет',
+  still: 'Натюрморт',
+  interior: 'Интерьер',
+}
+
+export const artists = [...new Set(artworks.map((a) => a.artist))].sort((a, b) => a.localeCompare(b, 'ru'))
+
+// Длинная сторона отпечатка, см
+export const sizes = [
+  { id: 's', label: 'S', long: 40 },
+  { id: 'm', label: 'M', long: 60 },
+  { id: 'l', label: 'L', long: 80 },
+  { id: 'xl', label: 'XL', long: 100 },
+]
+
+export const materials = [
+  { id: 'paper', label: 'Бумага', note: 'Музейная печать гикле на хлопковой бумаге 310 г/м²' },
+  { id: 'canvas', label: 'Холст', note: 'Печать на хлопковом холсте, натянут на деревянный подрамник 2 см' },
+]
+
+export const frames = [
+  { id: 'none', label: 'Без рамы' },
+  { id: 'black', label: 'Чёрная' },
+  { id: 'white', label: 'Белая' },
+  { id: 'oak', label: 'Дуб' },
+]
+
+const PRICES = {
+  paper: { s: 2900, m: 4900, l: 7900, xl: 11900 },
+  canvas: { s: 4900, m: 7900, l: 11900, xl: 16900 },
+}
+const FRAME_PRICES = { s: 2500, m: 3500, l: 4900, xl: 6900 }
+
+export const MIN_PRICE = PRICES.paper.s
+
+export function priceOf({ material, size, frame }) {
+  let p = PRICES[material][size]
+  if (material === 'paper' && frame && frame !== 'none') p += FRAME_PRICES[size]
+  return p
+}
+
+export function sizeLabel(art, sizeId) {
+  const s = sizes.find((x) => x.id === sizeId)
+  const r = art.ratio // h / w
+  const w = r > 1 ? Math.round(s.long / r) : s.long
+  const h = r > 1 ? s.long : Math.round(s.long * r)
+  return `${w} × ${h} см`
+}
+
+export function optionLabel(art, { material, size, frame }) {
+  const parts = [materials.find((m) => m.id === material).label, sizeLabel(art, size)]
+  if (material === 'paper' && frame !== 'none') parts.push('рама: ' + frames.find((f) => f.id === frame).label.toLowerCase())
+  return parts.join(', ')
+}
+
+export const deliveryMethods = [
+  { id: 'courier-msk', label: 'Курьер по Москве', note: '1–2 дня после изготовления', price: 390, address: true },
+  { id: 'cdek-pvz', label: 'СДЭК — пункт выдачи', note: 'по России, 2–7 дней', price: 450, address: true },
+  { id: 'cdek-door', label: 'СДЭК — курьер до двери', note: 'по России, 2–7 дней', price: 790, address: true },
+  { id: 'pickup', label: 'Самовывоз', note: 'Москва, по договорённости', price: 0, address: false },
+]
+export const FREE_DELIVERY_FROM = 10000
+
+export function deliveryPrice(methodId, subtotal) {
+  const m = deliveryMethods.find((d) => d.id === methodId)
+  if (!m) return 0
+  return subtotal >= FREE_DELIVERY_FROM ? 0 : m.price
+}
+
+export const paymentMethods = [
+  { id: 'online', label: 'Картой онлайн', note: 'Пришлём ссылку на оплату после подтверждения заказа' },
+  { id: 'on-delivery', label: 'При получении', note: 'Картой или наличными курьеру / в пункте выдачи' },
 ]
 
 export const formatPrice = (n) => n.toLocaleString('ru-RU') + ' ₽'
 export const getArtwork = (id) => artworks.find((a) => a.id === id)
+
+const base = import.meta.env.BASE_URL
+export const imgSrc = (art, size = 's') => `${base}art/${art.id}-${size}.webp`
